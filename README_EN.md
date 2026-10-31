@@ -2,11 +2,11 @@
 
 <img src="assets/banner-en.svg" width="100%" alt="zjkl" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=F6821F&center=true&vCenter=true&width=620&lines=Cloudflare+Workers;AI+Agent+Orchestration;Self-hosted+Services" alt="typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=F6821F&center=true&vCenter=true&width=620&lines=Cloudflare+Workers;WebGL+%26+Frontend;Self-hosted+Services" alt="typing" />
 
 <br/>
 
-**High-school student, self-taught. Two tracks: services running on the Cloudflare edge, and a local system that orchestrates AI coding agents.**
+**High-school student, self-taught. A pile of services on the Cloudflare edge, plus a few frontend and graphics projects I worked through myself.**
 
 [![Blog](https://img.shields.io/badge/Blog-blog.zjkl.qzz.io-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://blog.zjkl.qzz.io)
 [![GitHub](https://img.shields.io/badge/GitHub-827802685-181717?style=flat-square&logo=github)](https://github.com/827802685)
@@ -17,7 +17,7 @@
 
 </div>
 
-Every project below is reachable online. Label conventions:
+Label conventions:
 
 | `Original` | `Adapted` | `Deployed` | `Archived` |
 | :---: | :---: | :---: | :---: |
@@ -27,58 +27,61 @@ Every project below is reachable online. Label conventions:
 
 ## 🚀 Featured projects
 
-### 🧠 [job](https://github.com/827802685/job) — Studio + Job state layer, merged into one process
+> Sorted by last commit. These five are the ones I was pushing on through October 2026.
 
-<sub>Studio subsystem adapted from Leeeger1/niuma-studio (MIT); Job state layer original</sub>
+### 🎭 [Live2D](https://github.com/827802685/Live2D) — a 2.28 MB Live2D Furina
 
-The studio half follows the upstream orchestration model: you talk to a single coordinator, she decomposes the task into a "project group × worker" grid — a project group is one model backend (Claude Code / Codex / OpenCode / Qoder / Trae / DeepSeek CLI, or any OpenAI-compatible endpoint), a worker is one skill file — and a rehearsal mode runs the whole flow with mock agents, spending no API quota and touching no files. What I did was merge and rework it: the original two-process, two-console layout became a single process on a single port, with the `bin/niuma.js` entry point, the config format and the console page all rewritten. The original part is the Job state layer mounted on the `/job/*` routes of that same process: intent routing → tiered permission decisions (deny unless granted) → execution leases → multiple validation gates → audit records → work orders, driven from the "butler" panel on the home page.
+<sub>Original · hand-written WebGL rasterizer · last commit 10-31</sub>
 
-### ⚡ [mini-flow](https://github.com/827802685/mini-flow) — A lightweight workflow engine on Workers
+I squeezed a **95.5 MB** Cubism `moc3` model down to **2.28 MB** and put it on a web page — no Cubism Core, no runtime library; the rasterizer is a piece of WebGL I wrote by hand. Breathing, blinking, gaze tracking and hair physics are all driven frame by frame through model parameters; expressions use **vertex frames actually sampled from the model plus per-part opacity**, not scale wiggle. The second model, Cyrdra, runs at 1.6 MB with 4096 texture / 26 layers / 28 drawables / 20 parameters and its own settings panel. The page falls back through four sources — this site → Cloudflare CDN → GitHub Pages → jsDelivr — while a boot screen shows real download percentage. The last round was all performance: MSAA off, masked scissor clipping replacing a full-screen stencil clear, adjacent run merging, and six adaptive quality tiers.
 
-<sub>Backend original, frontend reuses n8n editor-ui</sub>
+### 🛰 [cloudflare](https://github.com/827802685/cloudflare) — a third-party Cloudflare console, plus an Android APK
 
-I implemented the REST API and the Push (SSE) protocol against n8n's node model myself, so the official editor-ui works as the canvas without modification. Storage is layered: D1 holds run state, KV holds credentials, a Durable Object relays SSE, and Workflows provides resumable execution; the runtime ships with checkpoints, idempotent retries, a dead-letter queue and overlap locks. Rationale lives in [`DECISIONS.md`](https://github.com/827802685/mini-flow/blob/main/DECISIONS.md).
+<sub>Original · Vue 3 SPA · latest v0.2.15 (10-27)</sub>
 
-### ☁️ [clist](https://clist.zjkl.dpdns.org) — Drive listing / image bed / object-storage aggregation
+A Vue 3 single-page app that also builds into an Android APK. **The APK is pure direct mode — paste one Cloudflare API token and it works, nothing to deploy**; the web build needs a Worker gateway first because the official API sends no CORS headers. It covers dashboards (traffic / status codes / country breakdown / period-over-period), Workers versions and usage, zones and DNS records, D1 / KV / R2, Zero Trust, and multiple accounts. Every API path is hard-coded in a whitelist and every field is validated — no generic passthrough — and errors are folded from 63 measured error codes into human-readable messages. Tokens are encrypted on-device with a random key under AES-256-GCM.
 
-<sub>Adapted, built on CloudPaste</sub>
+### ☁️ [clist](https://github.com/827802685/clist-cf) — drive listing / image bed / storage aggregation
 
-CloudPaste as the base, merging CloudFlare-ImgBed's image-hosting capability with Cloudflare-Clist's multi-drive aggregation, so one Worker serves all three, up long-term. Development happens in the private `clist-cf` repo; the public mirror [cloud-drive](https://github.com/827802685/cloud-drive) is the same codebase (`package.json` identical, only deployment parameters differ).
+<sub>Adapted, built on CloudPaste · last commit 10-30 (Iter 20)</sub>
 
-### 🔀 [freellmapi-cf](https://github.com/827802685/freellmapi-cf) — Free-model router
+One Worker serving three things at once: multi-drive aggregation (S3 / WebDAV / OneDrive / Google Drive / Telegram / Aliyun Drive / Baidu Drive and more), an image bed, and storage statistics with an audit log — running on D1 + KV with no R2 dependency. It reached Iter 20; the recent fixes were scope validation for WebDAV COPY/MOVE target paths and image-bed IP handling. Development lives in the private `clist-cf` repo; the public mirror [cloud-drive](https://github.com/827802685/cloud-drive) is the same codebase (`package.json` identical, only deployment parameters differ).
 
-<sub>Archived</sub>
+### 🌸 [Rin](https://github.com/827802685/Rin) — blog engine rework
 
-Used to pool the free tiers of roughly 20 providers behind a single OpenAI-compatible endpoint, dispatching by availability with failover, up to v3.6.0. I no longer maintain this repo; the historical address **[api.zjkl0330.dpdns.org](https://api.zjkl0330.dpdns.org)** stays listed as an archive with no availability guarantee.
+<sub>Fork of openRin/Rin · 20 commits of mine · last commit 10-31 · live at [blog.zjkl.qzz.io](https://blog.zjkl.qzz.io)</sub>
 
-### 📮 [personal-ai-mail](https://github.com/827802685/personal-ai-mail) — Single-user AI mail system
+I rework the UI and interactions on top of Rin's Workers + D1 + R2 blog skeleton. The last two iterations rebuilt the mascot UI: the toolbar collapses into a glass sphere and expands into a vertical glass panel, and the trigger sphere no longer gets stained by panel shadows while open. Model pre-caching, keep-alive, an expression panel, a chat persona and cache management came along with it.
 
-<sub>Adapted, core framework from maillab/cloud-mail</sub>
+### 🎵 [meting-api-serverless](https://github.com/827802685/meting-api-serverless) — multi-platform music API
 
-On top of cloud-mail's receiving and storage skeleton I wrote verification-code extraction, FTS5 full-text search for Chinese, and 11 MCP tools for agents to call. Live at **[mail.zjkl.qzz.io](https://mail.zjkl.qzz.io)**.
+<sub>Adapted · Hono · Workers / Vercel · last commit 10-31</sub>
+
+Wraps NetEase, QQ Music, Kugou, Baidu and Kuwo behind one uniform interface via `@meting/core`. My main change is **automatic takeover when a QQ Music cookie dies**: a standby cookie pool with rotation, WeCom alerts, fallback playback, and an upstream health baseline.
 
 <br/>
 
 <sub>
-**Also written by me**: **hot-news** (trending-news aggregation + RSS + multi-channel push Worker — the news wall below), **extraction** (watermark-free short-video and image parsing for 7 platforms), **Password-UUID-Generator**, **web-clipboard**, the **tampermonkey** script collection, **domain-alert** (the uptime config kept in this repo).<br/>
-**Adapted and running** (upstream named): **Rin** (openRin/Rin), **UptimeFlare** (lyc8503/UptimeFlare), **MoonTV** (samqin123/MoonTV), **SPlayer** (kingfly0927/SPlayer), **TrendRadar** (sansan0/TrendRadar), **music** (meting-backend-js), **personal-ai-mail** (maillab/cloud-mail, see above).<br/>
-**Deployed from upstream, no originality claimed**: **RSSWorker**, **tg-img**, **ra2web**, the **Live2D mascot site**, **NextChat**, **Sink**; **cloud-api** (AI gateway, Workers + D1 and Docker deployments) varies in how far I took it — its README and LICENSE are the authority on upstream and terms.
+<b>Other repos I wrote</b>: <b>job</b> (the "niuma studio" plus an original Job state layer: intent routing → tiered permission decisions → execution leases → gates → audit → work orders), <b>mini-flow</b> (n8n moved onto Workers, REST + SSE contract written from scratch, layered over D1 / KV / Durable Objects / Workflows), <b>cloud-api</b> (AI gateway), <b>hot-news</b> (trending aggregation + RSS + multi-channel push), <b>personal-ai-mail</b> (verification-code extraction and FTS5 Chinese full-text search on top of cloud-mail), <b>blog-markdown</b> (blog content repo), <b>Password-UUID-Generator</b>, <b>web-clipboard</b>, the <b>tampermonkey</b> script collection, <b>extraction</b> (watermark-free parsing), <b>domain-alert</b> (domain renewal watchdog kept in this repo).<br/>
+<b>Private repos</b>: <b>checkin-hub</b> (WorkBuddy / Trae / Genshin Cloud / Bilibili daily check-ins orchestrated by GitHub Actions — pure Python standard library, zero dependencies, every request forced out through the home residential IP), <b>clist-cf</b>, <b>rsshub</b>.<br/>
+<b>Archived</b>: <b>freellmapi-cf</b> (once pooled the free tiers of ~20 providers behind one OpenAI-compatible endpoint; the address stays as an archive only).<br/>
+<b>Deployed from upstream, no originality claimed</b>: <b>MoonTV</b>, <b>SPlayer</b>, <b>TrendRadar</b>, <b>RSSWorker</b>, <b>tg-img</b> (Telegraph-Image), the <b>live2d-widget</b> mascot, <b>NextChat</b>, <b>Sink</b>, <b>ra2web</b>, <b>UptimeFlare</b>, <b>m3e-canvas</b>.
 </sub>
 
 <br/>
 
 ## 🌐 Services running now
 
-> All self-hosted on Cloudflare. The list follows the config of my own uptime page [uptime.zjkl.dpdns.org](https://uptime.zjkl.dpdns.org), individually re-checked on 2026-10-07 for HTTP 200. Rows marked *Archived* stay listed for reference: the address may still answer, but I no longer maintain the code behind it.
+> All self-hosted on Cloudflare. The list follows the config of my own uptime page [uptime.zjkl.dpdns.org](https://uptime.zjkl.dpdns.org).
 
 | Service | URL | Notes |
 | :--- | :--- | :--- |
 | 🏠 **Home** | [zjkl.qzz.io](https://zjkl.qzz.io) | Personal portal |
 | 📝 **Blog** | [blog.zjkl.qzz.io](https://blog.zjkl.qzz.io) | Adapted from Rin · Workers + D1 + R2 |
 | 🔥 **News wall** | [news.zjkl.qzz.io](https://news.zjkl.qzz.io) | My own crawler, one pass every 15 min |
-| ☁️ **Drive / image bed** | [clist.zjkl.dpdns.org](https://clist.zjkl.dpdns.org) | Three-in-one aggregate on CloudPaste |
-| 📮 **Mail** | [mail.zjkl.qzz.io](https://mail.zjkl.qzz.io) | cloud-mail based: AI triage, code extraction, full-text search |
-| 🔀 **Free models** (archived) | [api.zjkl0330.dpdns.org](https://api.zjkl0330.dpdns.org) | freellmapi-cf archive address, unmaintained |
+| ☁️ **Drive / image bed** | [clist.zjkl.dpdns.org](https://clist.zjkl.dpdns.org) | Three-in-one aggregate, instance being rebuilt |
+| 📮 **Mail** | [mail.zjkl.qzz.io](https://mail.zjkl.qzz.io) | AI triage, code extraction, full-text search |
+| 🎭 **Live2D** | [827802685.github.io/Live2D](https://827802685.github.io/Live2D/) | FurinaMini and Cyrdra |
 | 🛰 **AI gateway** | [api.zjkl.dpdns.org](https://api.zjkl.dpdns.org) | cloud-api admin console |
 | 💬 **Chat** | [chat.zjkl.dpdns.org](https://chat.zjkl.dpdns.org) | NextChat deployment |
 | 📊 **Uptime / status** | [uptime](https://uptime.zjkl.dpdns.org) · [status](https://status.zjkl.dpdns.org) | Two UptimeFlare instances |
@@ -106,13 +109,13 @@ On top of cloud-mail's receiving and storage skeleton I wrote verification-code 
 ![R2](https://img.shields.io/badge/R2-0B1020?style=flat-square&logo=cloudflare&logoColor=F38020)
 ![Hono](https://img.shields.io/badge/Hono-E36002?style=flat-square&logoColor=white)
 
-<sub>Frontend · Tooling</sub>
+<sub>Frontend · Graphics · Tooling</sub>
 
 ![Vue](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![WebGL](https://img.shields.io/badge/WebGL-990000?style=flat-square&logo=webgl&logoColor=white)
 ![Nuxt](https://img.shields.io/badge/Nuxt-00DC82?style=flat-square&logo=nuxtdotjs&logoColor=white)
+![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=flat-square&logo=capacitor&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 <br/>
 
@@ -139,7 +142,7 @@ On top of cloud-mail's receiving and storage skeleton I wrote verification-code 
 
 ## 🤝 Contact
 
-Open an issue if you work on **Cloudflare Workers / edge computing / AI agent orchestration** — happy to talk. I take small self-hosted tool and script requests. I don't take ghost-writing gigs, traffic inflation, or anything that asks me to fabricate data.
+Open an issue if you work on **Cloudflare Workers / frontend graphics / self-hosted services** — happy to talk. I take small self-hosted tool and script requests. I don't take ghost-writing gigs, traffic inflation, or anything that asks me to fabricate data.
 
 <div align="center">
 

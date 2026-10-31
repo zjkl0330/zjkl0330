@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260" role="img" aria-label="zjkl — high-school student, self-taught · Cloudflare edge services and local AI orchestration">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260" role="img" aria-label="zjkl — high-school student, self-taught · Cloudflare edge services and frontend graphics">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#080D1A"/>
@@ -50,7 +50,7 @@
   <!-- 文字 -->
   <text x="80" y="118" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#FFFFFF" letter-spacing="1.5">zjkl</text>
   <text x="81" y="152" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="500" fill="#F6821F" letter-spacing="0.3">High-school student · self-taught</text>
-  <text x="81" y="180" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14.5" fill="#9FB3D1" letter-spacing="0.2">Cloudflare edge services · local AI orchestration</text>
+  <text x="81" y="180" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14.5" fill="#9FB3D1" letter-spacing="0.2">Cloudflare edge services · frontend &amp; graphics</text>
 
   <!-- 右侧胶囊 -->
   <g font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13">

@@ -2,11 +2,11 @@
 
 <img src="assets/banner.svg" width="100%" alt="zjkl" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=F6821F&center=true&vCenter=true&width=620&lines=Cloudflare+Workers;AI+Agent+Orchestration;Self-hosted+Services" alt="typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=F6821F&center=true&vCenter=true&width=620&lines=Cloudflare+Workers;WebGL+%26+Frontend;Self-hosted+Services" alt="typing" />
 
 <br/>
 
-**高中生，自学。两条主线：跑在 Cloudflare 边缘的服务，和编排 AI 编码代理的本地系统。**
+**高中生，自学。跑在 Cloudflare 边缘的一堆服务，和几个自己啃下来的前端 / 图形项目。**
 
 [![Blog](https://img.shields.io/badge/Blog-blog.zjkl.qzz.io-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://blog.zjkl.qzz.io)
 [![GitHub](https://img.shields.io/badge/GitHub-827802685-181717?style=flat-square&logo=github)](https://github.com/827802685)
@@ -17,7 +17,7 @@
 
 </div>
 
-下面的项目都能线上访问。标注约定：
+标注约定：
 
 | `自研` | `二次开发` | `部署在用` | `已停用` |
 | :---: | :---: | :---: | :---: |
@@ -27,64 +27,67 @@
 
 ## 🚀 精选项目
 
-### 🧠 [job](https://github.com/827802685/job) — 牛马工作室 + Job 状态层（单进程合并版）
+> 按最近提交时间排，下面五个是 2026-10 还在推的。
 
-<sub>工作室子系统二次开发（上游 Leeeger1/niuma-studio，MIT）；Job 状态层自研</sub>
+### 🎭 [Live2D](https://github.com/827802685/Live2D) — 2.28 MB 的 Live2D 芙宁娜
 
-工作室部分沿用上游的编排模型：你只跟总管说话，她把任务拆给「项目组 × 员工」——项目组是一个模型后端（Claude Code / Codex / OpenCode / Qoder / Trae / DeepSeek CLI 及任意 OpenAI 兼容接口），员工是一个技能文件；彩排模式用模拟代理走完整流程，不消耗额度、不改动文件。我做的是合并与改造：把原本的双进程、两套控制台收敛成单进程单端口的一版，入口 `bin/niuma.js`、配置格式与控制台页面均已改动。自研的是挂在同进程 `/job/*` 路由上的 Job 状态层：意图路由 → 分级权限裁定（未授权默认拒绝）→ 执行租约 → 多道校验门禁 → 审计记录 → 工单归档，入口是首页的「管家」面板。
+<sub>自研 · 手写 WebGL 光栅化 · 最近提交 10-31</sub>
 
-### ⚡ [mini-flow](https://github.com/827802685/mini-flow) — 跑在 Workers 上的轻量工作流引擎
+把一个 **95.5 MB** 的 Cubism `moc3` 模型压到 **2.28 MB** 放进网页——不引 Cubism Core，不用任何运行时库，光栅化是一段手写的 WebGL。呼吸、眨眼、视线跟随、发丝物理全靠逐帧参数驱动；表情用的是**真实采样出来的顶点帧加部件透明度**，不是缩放抖动。第二个模型刻律德菈（Cyrdra）运行时 1.6 MB，4096 贴图 / 26 层 / 28 drawable / 20 参数，配独立设置面板。页面按「本站 → Cloudflare CDN → GitHub Pages → jsDelivr」四级回退加载，boot 界面实时显示下载百分比。最近一轮全在做性能：关 MSAA、用掩码 scissor 裁剪替代全屏 stencil 清屏、相邻 run 合并、自适应档位扩到 6 档。
 
-<sub>后端自研，前端复用 n8n editor-ui</sub>
+### 🛰 [cloudflare](https://github.com/827802685/cloudflare) — Cloudflare 第三方控制台 + 安卓 APK
 
-按 n8n 的节点模型自行实现了 REST 接口与 Push(SSE) 协议，因此画布可以直接用官方 editor-ui，无需改动。存储分层：D1 存运行状态，KV 存凭据，Durable Object 转发 SSE，Workflows 负责断点续跑；运行时带检查点、幂等重试、死信队列与防重叠锁。取舍理由见 [`DECISIONS.md`](https://github.com/827802685/mini-flow/blob/main/DECISIONS.md)。
+<sub>自研 · Vue 3 SPA · 最新 v0.2.15（10-27）</sub>
 
-### ☁️ [clist](https://clist.zjkl.dpdns.org) — 网盘列表 / 图床 / 对象存储聚合
+一个 Vue 3 单页应用，能打包成安卓 APK。**APK 是纯直连模式——粘一把 Cloudflare API Token 就能用，不需要部署任何服务**；网页版因为官方 API 无 CORS，要先放一个 Worker 网关。覆盖看板（流量 / 状态码 / 国家分布 / 环比）、Workers 版本与用量、域名与 DNS 增删改、D1 / KV / R2、Zero Trust、多账号切换。所有 API 路径白名单写死并逐字段校验，不做通用透传；错误按 63 次实测的错误码归并成人类可读提示。令牌在本机用随机密钥做 AES-256-GCM 加密。
 
-<sub>二次开发，基于 CloudPaste</sub>
+### ☁️ [clist](https://github.com/827802685/clist-cf) — 网盘 / 图床 / 存储聚合
 
-以 CloudPaste 为基座，合并 CloudFlare-ImgBed 的图床能力与 Cloudflare-Clist 的多网盘聚合，一个 Worker 同时提供三种服务，长期在线。开发在私有仓 `clist-cf`，公开镜像 [cloud-drive](https://github.com/827802685/cloud-drive) 与之同源（`package.json` 一致，仅部署参数不同）。
+<sub>二次开发，以 CloudPaste 为核心 · 最近提交 10-30（Iter 20）</sub>
 
-### 🔀 [freellmapi-cf](https://github.com/827802685/freellmapi-cf) — 免费模型路由
+一个 Worker 同时提供三种服务：多网盘聚合（S3 / WebDAV / OneDrive / Google Drive / Telegram / 阿里云盘 / 百度网盘等）、图床、存储统计与审计日志，跑在 D1 + KV 上、不依赖 R2。迭代到 Iter 20，最近补的是 WebDAV COPY/MOVE 的目标路径作用域校验、图床 IP 相关修复。开发在私有仓 `clist-cf`，公开镜像 [cloud-drive](https://github.com/827802685/cloud-drive) 与之同源（`package.json` 一致，仅部署参数不同）。
 
-<sub>已停用</sub>
+### 🌸 [Rin](https://github.com/827802685/Rin) — 博客引擎改造
 
-曾经聚合约 20 家提供商的免费额度，对外只暴露一个 OpenAI 兼容端点，按可用性做分发与故障转移，线上跑到 v3.6.0。这个仓库我已不再维护，历史地址 **[api.zjkl0330.dpdns.org](https://api.zjkl0330.dpdns.org)** 保留仅作存档，不保证可用。
+<sub>fork 自 openRin/Rin · 自己提交 20 次 · 最近提交 10-31 · 线上 [blog.zjkl.qzz.io](https://blog.zjkl.qzz.io)</sub>
 
-### 📮 [personal-ai-mail](https://github.com/827802685/personal-ai-mail) — 单用户 AI 邮件系统
+在 Rin 的 Workers + D1 + R2 骨架上改界面与交互。最近两个迭代重做了看板娘：工具栏收起成一颗玻璃球、展开为竖排玻璃面板，还修掉了触发球展开时被面板阴影染黑的问题；同时加了模型预缓存、保活、表情面板、聊天人设与缓存管理。
 
-<sub>二次开发，主体框架来自 maillab/cloud-mail</sub>
+### 🎵 [meting-api-serverless](https://github.com/827802685/meting-api-serverless) — 多平台音乐 API
 
-在 cloud-mail 的收信与存储骨架上，自己写了验证码提取、FTS5 中文全文搜索，以及 11 个供 Agent 调用的 MCP 工具接口。线上 **[mail.zjkl.qzz.io](https://mail.zjkl.qzz.io)**。
+<sub>二次开发 · Hono · Workers / Vercel 双端 · 最近提交 10-31</sub>
+
+基于 `@meting/core` 把网易云、QQ 音乐、酷狗、百度、酷我封装成一套统一接口。我主要动的是 **QQ 音乐 Cookie 失效后的自动接管**：备用 Cookie 池轮换、企业微信告警、失效时兜底播放，以及上游健康度基线。
 
 <br/>
 
 <sub>
-**另外自己写的**：**hot-news**（热榜聚合 + RSS + 多通道推送的 Worker，即上面的新闻墙）、**extraction**（7 大平台短视频/图片无水印解析）、**Password-UUID-Generator**、**web-clipboard**、**tampermonkey** 脚本集、**domain-alert**（本仓库内的探活配置）。<br/>
-**二次开发并在跑**（上游已在括号注明）：**Rin**（openRin/Rin）、**UptimeFlare**（lyc8503/UptimeFlare）、**MoonTV**（samqin123/MoonTV）、**SPlayer**（kingfly0927/SPlayer）、**TrendRadar**（sansan0/TrendRadar）、**music**（meting-backend-js）、**personal-ai-mail**（maillab/cloud-mail，见上）。<br/>
-**同源部署他人项目，不声称原创**：**RSSWorker**、**tg-img**、**ra2web**、**Live2D 看板娘**、**NextChat**、**Sink**；**cloud-api**（AI 网关，Workers + D1 与 Docker 双部署）改造幅度不等，上游与许可以其仓库内 README、LICENSE 为准。
+<b>其他自研的</b>：<b>job</b>（牛马工作室 + 自研 Job 状态层：意图路由 → 分级权限裁定 → 执行租约 → 门禁 → 审计 → 工单）、<b>mini-flow</b>（把 n8n 搬到 Workers，自写 REST + SSE 契约，D1 / KV / Durable Objects / Workflows 分层）、<b>cloud-api</b>（AI 网关）、<b>hot-news</b>（热榜聚合 + RSS + 多通道推送）、<b>personal-ai-mail</b>（cloud-mail 骨架上加验证码提取与 FTS5 中文全文搜索）、<b>blog-markdown</b>（博客内容仓）、<b>Password-UUID-Generator</b>、<b>web-clipboard</b>、<b>tampermonkey</b> 脚本集、<b>extraction</b>（多平台无水印解析）、<b>domain-alert</b>（本仓库内的域名续期探活）。<br/>
+<b>私有仓库</b>：<b>checkin-hub</b>（WorkBuddy / Trae / 云原神 / B 站签到，GitHub Actions 编排，纯 Python 标准库零依赖，强制所有请求走家庭住宅出口）、<b>clist-cf</b>、<b>rsshub</b>。<br/>
+<b>已停用</b>：<b>freellmapi-cf</b>（曾聚合约 20 家免费额度，对外一个 OpenAI 兼容端点，历史地址仅存档）。<br/>
+<b>拿上游部署，不声称原创</b>：<b>MoonTV</b>、<b>SPlayer</b>、<b>TrendRadar</b>、<b>RSSWorker</b>、<b>tg-img</b>（Telegraph-Image）、<b>live2d-widget</b> 看板娘、<b>NextChat</b>、<b>Sink</b>、<b>ra2web</b>、<b>UptimeFlare</b>、<b>m3e-canvas</b>。
 </sub>
 
 <br/>
 
 ## 🌐 在跑的服务
 
-> 全部自托管在 Cloudflare。清单以自建探活页 [uptime.zjkl.dpdns.org](https://uptime.zjkl.dpdns.org) 的配置为准，2026-10-07 逐个复核返回 HTTP 200；标了「已停用」的行是存档，地址可能仍能访问，但我不再维护其代码。
+> 全部自托管在 Cloudflare。清单以自建探活页 [uptime.zjkl.dpdns.org](https://uptime.zjkl.dpdns.org) 的配置为准。
 
 | 服务 | 地址 | 说明 |
 | :--- | :--- | :--- |
 | 🏠 **主页** | [zjkl.qzz.io](https://zjkl.qzz.io) | 个人门户 |
 | 📝 **博客** | [blog.zjkl.qzz.io](https://blog.zjkl.qzz.io) | Rin 改造 · Workers + D1 + R2 |
 | 🔥 **新闻墙** | [news.zjkl.qzz.io](https://news.zjkl.qzz.io) | 自写采集，15 分钟一轮 |
-| ☁️ **云盘 / 图床** | [clist.zjkl.dpdns.org](https://clist.zjkl.dpdns.org) | 基于 CloudPaste 的三合一聚合 |
-| 📮 **邮箱** | [mail.zjkl.qzz.io](https://mail.zjkl.qzz.io) | 基于 cloud-mail 的 AI 分类、验证码提取、全文搜索 |
-| 🔀 **免费模型**（已停用） | [api.zjkl0330.dpdns.org](https://api.zjkl0330.dpdns.org) | freellmapi-cf 存档地址，仓库不再维护 |
+| ☁️ **云盘 / 图床** | [clist.zjkl.dpdns.org](https://clist.zjkl.dpdns.org) | 三合一聚合，实例重建中 |
+| 📮 **邮箱** | [mail.zjkl.qzz.io](https://mail.zjkl.qzz.io) | AI 分类、验证码提取、全文搜索 |
+| 🎭 **Live2D** | [827802685.github.io/Live2D](https://827802685.github.io/Live2D/) | FurinaMini 与刻律德菈 |
 | 🛰 **AI 网关** | [api.zjkl.dpdns.org](https://api.zjkl.dpdns.org) | cloud-api 管理后台 |
 | 💬 **Chat** | [chat.zjkl.dpdns.org](https://chat.zjkl.dpdns.org) | NextChat 部署 |
 | 📊 **探活 / 状态页** | [uptime](https://uptime.zjkl.dpdns.org) · [status](https://status.zjkl.dpdns.org) | UptimeFlare 双实例 |
 | 🔗 **短链** | [zjkl0330.dpdns.org](https://zjkl0330.dpdns.org) | Sink 部署 |
 
-<sub>另有 RSS 订阅源、模型雷达、视频解析、在线剪贴板、密码与地址生成器、GitHub 加速镜像，以及 TV / 小游戏一类的自用站点，都分布在域名族 <code>*.zjkl.qzz.io</code> · <code>*.zjkl.dpdns.org</code> · <code>*.zjkl0330.dpdns.org</code> · <code>*.zjkl0426.dpdns.org</code> · <code>*.zjkl0716.dpdns.org</code> 下，状态以探活页为准。</sub>
+<sub>另有 RSS 订阅源、模型雷达、视频解析、在线剪贴板、密码与地址生成器、GitHub 加速镜像，以及 TV / 小游戏一类的自用站点，分布在域名族 <code>*.zjkl.qzz.io</code> · <code>*.zjkl.dpdns.org</code> · <code>*.zjkl0330.dpdns.org</code> · <code>*.zjkl0426.dpdns.org</code> · <code>*.zjkl0716.dpdns.org</code> 下，状态以探活页为准。</sub>
 
 <br/>
 
@@ -106,13 +109,13 @@
 ![R2](https://img.shields.io/badge/R2-0B1020?style=flat-square&logo=cloudflare&logoColor=F38020)
 ![Hono](https://img.shields.io/badge/Hono-E36002?style=flat-square&logoColor=white)
 
-<sub>前端 · 工具</sub>
+<sub>前端 · 图形 · 工具</sub>
 
 ![Vue](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![WebGL](https://img.shields.io/badge/WebGL-990000?style=flat-square&logo=webgl&logoColor=white)
 ![Nuxt](https://img.shields.io/badge/Nuxt-00DC82?style=flat-square&logo=nuxtdotjs&logoColor=white)
+![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=flat-square&logo=capacitor&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 <br/>
 
@@ -139,7 +142,7 @@
 
 ## 🤝 合作
 
-对 **Cloudflare Workers / 边缘计算 / AI Agent 编排**感兴趣，开 issue 直接聊。接小的自建工具与脚本需求。不接代写、刷量，以及任何要求编造数据的活。
+对 **Cloudflare Workers / 前端图形 / 自建服务**感兴趣，开 issue 直接聊。接小的自建工具与脚本需求。不接代写、刷量，以及任何要求编造数据的活。
 
 <div align="center">
 
