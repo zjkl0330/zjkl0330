@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 232" width="900" height="232" role="img" aria-label="monthly contributions">
+
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+    <line x1="10" y1="177" x2="890" y2="177" stroke="#30363D" stroke-width="1"/>
+    <text x="10" y="46" font-size="27" font-weight="700" fill="#E6EDF3">2,413</text>
+    <text x="10" y="66" font-size="11.5" fill="#8B949E">contributions</text>
+    <text x="220" y="46" font-size="27" font-weight="700" fill="#E6EDF3">22</text>
+    <text x="220" y="66" font-size="11.5" fill="#8B949E">longest streak</text>
+    <text x="430" y="46" font-size="27" font-weight="700" fill="#E6EDF3">8</text>
+    <text x="430" y="66" font-size="11.5" fill="#8B949E">current streak</text>
+    <rect x="24.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="50.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Dec</text>
+    <rect x="104.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="130.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Jan</text>
+    <rect x="184.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="210.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Feb</text>
+    <rect x="264.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="290.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Mar</text>
+    <rect x="344.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="370.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Apr</text>
+    <rect x="424.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="450.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">May</text>
+    <rect x="504.0" y="174.0" width="52.0" height="2.0" rx="3" fill="#26A641"/>
+    <text x="530.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Jun</text>
+    <rect x="584.0" y="165.4" width="52.0" height="10.6" rx="3" fill="#26A641"/>
+    <text x="610.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Jul</text>
+    <rect x="664.0" y="68.0" width="52.0" height="108.0" rx="3" fill="#39D353"/>
+    <text x="690.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Aug</text>
+    <rect x="744.0" y="152.4" width="52.0" height="23.6" rx="3" fill="#26A641"/>
+    <text x="770.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Sep</text>
+    <rect x="824.0" y="125.8" width="52.0" height="50.2" rx="3" fill="#26A641"/>
+    <text x="850.0" y="196" text-anchor="middle" font-size="11" fill="#8B949E">Oct</text>
+  </g>
+</svg>

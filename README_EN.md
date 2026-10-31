@@ -25,6 +25,16 @@ Label conventions:
 
 <br/>
 
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake.svg" />
+  <img src="assets/snake.svg" width="100%" alt="contribution snake" />
+</picture>
+</div>
+
+<br/>
+
 ## 🚀 Featured projects
 
 > Sorted by last commit. These five are the ones I was pushing on through October 2026.
@@ -61,15 +71,6 @@ Wraps NetEase, QQ Music, Kugou, Baidu and Kuwo behind one uniform interface via 
 
 <br/>
 
-<sub>
-<b>Other repos I wrote</b>: <b>job</b> (the "niuma studio" plus an original Job state layer: intent routing → tiered permission decisions → execution leases → gates → audit → work orders), <b>mini-flow</b> (n8n moved onto Workers, REST + SSE contract written from scratch, layered over D1 / KV / Durable Objects / Workflows), <b>cloud-api</b> (AI gateway), <b>hot-news</b> (trending aggregation + RSS + multi-channel push), <b>personal-ai-mail</b> (verification-code extraction and FTS5 Chinese full-text search on top of cloud-mail), <b>blog-markdown</b> (blog content repo), <b>Password-UUID-Generator</b>, <b>web-clipboard</b>, the <b>tampermonkey</b> script collection, <b>extraction</b> (watermark-free parsing), <b>domain-alert</b> (domain renewal watchdog kept in this repo).<br/>
-<b>Private repos</b>: <b>checkin-hub</b> (WorkBuddy / Trae / Genshin Cloud / Bilibili daily check-ins orchestrated by GitHub Actions — pure Python standard library, zero dependencies, every request forced out through the home residential IP), <b>clist-cf</b>, <b>rsshub</b>.<br/>
-<b>Archived</b>: <b>freellmapi-cf</b> (once pooled the free tiers of ~20 providers behind one OpenAI-compatible endpoint; the address stays as an archive only).<br/>
-<b>Deployed from upstream, no originality claimed</b>: <b>MoonTV</b>, <b>SPlayer</b>, <b>TrendRadar</b>, <b>RSSWorker</b>, <b>tg-img</b> (Telegraph-Image), the <b>live2d-widget</b> mascot, <b>NextChat</b>, <b>Sink</b>, <b>ra2web</b>, <b>UptimeFlare</b>, <b>m3e-canvas</b>.
-</sub>
-
-<br/>
-
 ## 🌐 Services running now
 
 > All self-hosted on Cloudflare. The list follows the config of my own uptime page [uptime.zjkl.dpdns.org](https://uptime.zjkl.dpdns.org).
@@ -86,8 +87,6 @@ Wraps NetEase, QQ Music, Kugou, Baidu and Kuwo behind one uniform interface via 
 | 💬 **Chat** | [chat.zjkl.dpdns.org](https://chat.zjkl.dpdns.org) | NextChat deployment |
 | 📊 **Uptime / status** | [uptime](https://uptime.zjkl.dpdns.org) · [status](https://status.zjkl.dpdns.org) | Two UptimeFlare instances |
 | 🔗 **Short links** | [zjkl0330.dpdns.org](https://zjkl0330.dpdns.org) | Sink deployment |
-
-<sub>Plus RSS feeds, a model radar, video parsing, an online clipboard, password and address generators, a GitHub acceleration mirror, and personal sites such as TV and small games — all under <code>*.zjkl.qzz.io</code> · <code>*.zjkl.dpdns.org</code> · <code>*.zjkl0330.dpdns.org</code> · <code>*.zjkl0426.dpdns.org</code> · <code>*.zjkl0716.dpdns.org</code>; the uptime page is authoritative for status.</sub>
 
 <br/>
 
@@ -124,17 +123,24 @@ Wraps NetEase, QQ Music, Kugou, Baidu and Kuwo behind one uniform interface via 
 <div align="center">
 
 ![followers](https://img.shields.io/github/followers/827802685?style=flat-square&label=Followers&color=F6821F&logo=github&logoColor=white)
-![repos](https://img.shields.io/badge/dynamic/json?style=flat-square&label=Repos&color=3178C6&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2F827802685)
 ![stars](https://img.shields.io/github/stars/827802685?style=flat-square&label=Stars&color=F7DF1E)
 ![since](https://img.shields.io/badge/On_GitHub-since_2024--02--08-22C55E?style=flat-square&logo=github&logoColor=white)
 
 <br/><br/>
 
-<img src="assets/langs-en.svg" width="100%" alt="language breakdown" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs.svg" />
+  <img src="assets/langs.svg" width="100%" alt="language breakdown" />
+</picture>
 
 <br/>
 
-<img src="https://streak-stats.demolab.com?user=827802685&hide_border=true&border_radius=10&theme=dark" alt="streak" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-en-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-en.svg" />
+  <img src="assets/contrib-en.svg" width="100%" alt="monthly contributions" />
+</picture>
 
 </div>
 

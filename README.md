@@ -25,6 +25,16 @@
 
 <br/>
 
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake.svg" />
+  <img src="assets/snake.svg" width="100%" alt="contribution snake" />
+</picture>
+</div>
+
+<br/>
+
 ## 🚀 精选项目
 
 > 按最近提交时间排，下面五个是 2026-10 还在推的。
@@ -61,15 +71,6 @@
 
 <br/>
 
-<sub>
-<b>其他自研的</b>：<b>job</b>（牛马工作室 + 自研 Job 状态层：意图路由 → 分级权限裁定 → 执行租约 → 门禁 → 审计 → 工单）、<b>mini-flow</b>（把 n8n 搬到 Workers，自写 REST + SSE 契约，D1 / KV / Durable Objects / Workflows 分层）、<b>cloud-api</b>（AI 网关）、<b>hot-news</b>（热榜聚合 + RSS + 多通道推送）、<b>personal-ai-mail</b>（cloud-mail 骨架上加验证码提取与 FTS5 中文全文搜索）、<b>blog-markdown</b>（博客内容仓）、<b>Password-UUID-Generator</b>、<b>web-clipboard</b>、<b>tampermonkey</b> 脚本集、<b>extraction</b>（多平台无水印解析）、<b>domain-alert</b>（本仓库内的域名续期探活）。<br/>
-<b>私有仓库</b>：<b>checkin-hub</b>（WorkBuddy / Trae / 云原神 / B 站签到，GitHub Actions 编排，纯 Python 标准库零依赖，强制所有请求走家庭住宅出口）、<b>clist-cf</b>、<b>rsshub</b>。<br/>
-<b>已停用</b>：<b>freellmapi-cf</b>（曾聚合约 20 家免费额度，对外一个 OpenAI 兼容端点，历史地址仅存档）。<br/>
-<b>拿上游部署，不声称原创</b>：<b>MoonTV</b>、<b>SPlayer</b>、<b>TrendRadar</b>、<b>RSSWorker</b>、<b>tg-img</b>（Telegraph-Image）、<b>live2d-widget</b> 看板娘、<b>NextChat</b>、<b>Sink</b>、<b>ra2web</b>、<b>UptimeFlare</b>、<b>m3e-canvas</b>。
-</sub>
-
-<br/>
-
 ## 🌐 在跑的服务
 
 > 全部自托管在 Cloudflare。清单以自建探活页 [uptime.zjkl.dpdns.org](https://uptime.zjkl.dpdns.org) 的配置为准。
@@ -86,8 +87,6 @@
 | 💬 **Chat** | [chat.zjkl.dpdns.org](https://chat.zjkl.dpdns.org) | NextChat 部署 |
 | 📊 **探活 / 状态页** | [uptime](https://uptime.zjkl.dpdns.org) · [status](https://status.zjkl.dpdns.org) | UptimeFlare 双实例 |
 | 🔗 **短链** | [zjkl0330.dpdns.org](https://zjkl0330.dpdns.org) | Sink 部署 |
-
-<sub>另有 RSS 订阅源、模型雷达、视频解析、在线剪贴板、密码与地址生成器、GitHub 加速镜像，以及 TV / 小游戏一类的自用站点，分布在域名族 <code>*.zjkl.qzz.io</code> · <code>*.zjkl.dpdns.org</code> · <code>*.zjkl0330.dpdns.org</code> · <code>*.zjkl0426.dpdns.org</code> · <code>*.zjkl0716.dpdns.org</code> 下，状态以探活页为准。</sub>
 
 <br/>
 
@@ -124,17 +123,24 @@
 <div align="center">
 
 ![followers](https://img.shields.io/github/followers/827802685?style=flat-square&label=Followers&color=F6821F&logo=github&logoColor=white)
-![repos](https://img.shields.io/badge/dynamic/json?style=flat-square&label=Repos&color=3178C6&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2F827802685)
 ![stars](https://img.shields.io/github/stars/827802685?style=flat-square&label=Stars&color=F7DF1E)
 ![since](https://img.shields.io/badge/On_GitHub-since_2024--02--08-22C55E?style=flat-square&logo=github&logoColor=white)
 
 <br/><br/>
 
-<img src="assets/langs.svg" width="100%" alt="language breakdown" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs.svg" />
+  <img src="assets/langs.svg" width="100%" alt="language breakdown" />
+</picture>
 
 <br/>
 
-<img src="https://streak-stats.demolab.com?user=827802685&hide_border=true&border_radius=10&locale=zh_Hans&theme=dark" alt="streak" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib.svg" />
+  <img src="assets/contrib.svg" width="100%" alt="monthly contributions" />
+</picture>
 
 </div>
 

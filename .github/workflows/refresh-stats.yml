@@ -1,0 +1,45 @@
+name: refresh stats
+
+on:
+  schedule:
+    - cron: "0 19 * * *" # UTC 19:00 = 北京时间 03:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 需要仓库 secret STATS_TOKEN（带 read:user 的 PAT）。
+      # 没配也能跑：脚本会跳过刷新，后面的步骤不会产生 diff。
+      - name: Refresh snapshot
+        env:
+          STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+        run: python scripts/refresh.py
+
+      - name: Rebuild SVGs
+        run: python scripts/build-assets.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets scripts/snapshot.json
+          if git diff --staged --quiet; then
+            echo "统计没变，不提交"
+          else
+            git commit -m "chore(stats): refresh snapshot and svg assets"
+            git push
+          fi
