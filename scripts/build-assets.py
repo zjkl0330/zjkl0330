@@ -345,8 +345,8 @@ def main():
     with open(os.path.join(HERE, "snapshot.json"), encoding="utf-8") as f:
         snap = json.load(f)
     jobs = [
-        ("langs.svg", lambda x, m: build_langs(x, m), "light"),
-        ("langs-dark.svg", lambda x, m: build_langs(x, m), "dark"),
+        ("langs-v2.svg", lambda x, m: build_langs(x, m), "light"),
+        ("langs-dark-v2.svg", lambda x, m: build_langs(x, m), "dark"),
         ("contrib.svg", lambda x, m: build_contrib(x, m, "zh"), "light"),
         ("contrib-dark.svg", lambda x, m: build_contrib(x, m, "zh"), "dark"),
         ("contrib-en.svg", lambda x, m: build_contrib(x, m, "en"), "light"),

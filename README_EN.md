@@ -27,8 +27,8 @@ Label conventions:
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake-dark.svg?v=20261101" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake.svg?v=20261101" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake.svg" />
   <img src="assets/snake.svg" width="100%" alt="contribution snake" />
 </picture>
 </div>
@@ -129,16 +129,16 @@ Wraps NetEase, QQ Music, Kugou, Baidu and Kuwo behind one uniform interface via 
 <br/><br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-dark.svg?v=20261101" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs.svg?v=20261101" />
-  <img src="assets/langs.svg" width="100%" alt="language breakdown" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-dark-v2.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-v2.svg" />
+  <img src="assets/langs-v2.svg" width="100%" alt="language breakdown" />
 </picture>
 
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-en-dark.svg?v=20261101" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-en.svg?v=20261101" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-en-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-en.svg" />
   <img src="assets/contrib-en.svg" width="100%" alt="monthly contributions" />
 </picture>
 
