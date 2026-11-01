@@ -27,8 +27,8 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake-dark.svg?v=20261101" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/snake.svg?v=20261101" />
   <img src="assets/snake.svg" width="100%" alt="contribution snake" />
 </picture>
 </div>
@@ -129,16 +129,16 @@
 <br/><br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs-dark.svg?v=20261101" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/langs.svg?v=20261101" />
   <img src="assets/langs.svg" width="100%" alt="language breakdown" />
 </picture>
 
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib-dark.svg?v=20261101" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/827802685/827802685/main/assets/contrib.svg?v=20261101" />
   <img src="assets/contrib.svg" width="100%" alt="monthly contributions" />
 </picture>
 

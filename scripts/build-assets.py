@@ -42,15 +42,27 @@ def build_langs(snap, mode="light"):
     track = "#21262D" if dark else "#EFF2F5"
 
     W = 900
-    RH, y0 = 34, 22
-    H = y0 + len(rows) * RH
-    BX, BW = 112, 752
+    RH, y0 = 34, 42
+    H = y0 + len(rows) * RH - 10
+    BX, BW = 112, 726
+
+    total_mb = sum(r["bytes"] for r in snap["languages"]["rows"]) / 1048576.0
+    nrepo = len(snap["languages"]["repos"])
+    m = re.search(r"\d{4}-\d{2}", snap["languages"].get("note", ""))
+    asof = m.group(0) if m else ""
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" '
         'role="img" aria-label="language breakdown">' % (W, H, W, H),
         "",
         '  <g font-family="%s">' % FONT,
+        # 标题 + 口径：语言名本身没有中英差异，所以中英共用这一张，
+        # 右侧只放纯数字（仓库数 / 总字节 / 月份），不写中文，避免出现"中文图放进英文 README"
+        '    <text x="0" y="15" font-size="13" font-weight="600" fill="%s">Languages</text>'
+        % fg,
+        '    <text x="%d" y="15" text-anchor="end" font-size="11.5" fill="%s">'
+        '%d repos · %.1f MB%s</text>'
+        % (W, sub, nrepo, total_mb, (" · " + asof) if asof else ""),
     ]
 
     for i, r in enumerate(rows):
